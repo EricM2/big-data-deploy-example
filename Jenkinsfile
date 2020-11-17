@@ -5,10 +5,9 @@ pipeline {
             steps {
                echo 'this is deploy'
                //sh 'mvn -B -DskipTests clean package'
-               sh 'export MAVEN_HOME=/opt/maven'
-               sh 'export PATH=$PATH:$MAVEN_HOME/bin'
-               sh 'mvn -version'
-
+               withMaven(maven : 'apache-maven-3.6.3') {
+                     sh 'mvn -version'
+               }
             }
         }
     }
