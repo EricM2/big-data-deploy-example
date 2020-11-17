@@ -4,10 +4,9 @@ pipeline {
         stage('Build') {
             steps {
                echo 'this is deploy'
+               sh '/opt/maven/bin/mvn -version'
                //sh 'mvn -B -DskipTests clean package'
-               withMaven(maven : 'apache-maven-3.6.3') {
-                     sh 'mvn -version'
-               }
+
             }
         }
     }
