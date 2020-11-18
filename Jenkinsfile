@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        NEXUS_CREDENCIAL_ID = "nexus-credentials"
+    }
     stages {
         stage('Build') {
             steps {
@@ -9,5 +12,8 @@ pipeline {
 
             }
         }
+        stage('Deploy') {
+                    step([$class: 'NexusPublisherBuildStep', nexusInstanceId: 'nexus-server', nexusRepositoryId: 'maven-snapshots', packages: [[$class: 'MavenPackage', mavenAssetList: [], mavenCoordinate: [artifactId: 'big-data-deploy-example', groupId: 'org.example', packaging: 'tar.gz', version: '1.0-SNAPSHOT']]], tagName: 'snapshots'])
+                }
     }
 }
