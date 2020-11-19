@@ -3,6 +3,7 @@ pipeline {
     environment {
        NEXUS_CREDENCIAL_ID = "nexus-credentials"
        VERSION = readMavenPom().getVersion()
+
     }
     stages {
         stage('publish') {
@@ -15,7 +16,7 @@ pipeline {
 
             steps {
                 withCredentials([usernamePassword(credentialsId: 'nexus-cred', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                        sh '/root/test-repo.sh'
+                        sh '/var/lib/jenkins/deploy.sh'
                 }
             }
         }
