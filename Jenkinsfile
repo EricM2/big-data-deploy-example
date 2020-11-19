@@ -1,7 +1,6 @@
 pipeline {
     agent any
     environment {
-       NEXUS_CREDENCIAL_ID = "nexus-credentials"
        VERSION = readMavenPom().getVersion()
        GROUPID = "org.example"
        ARTIFACTID = "big-data-deploy-example"
