@@ -16,7 +16,7 @@ pipeline {
                sh '/opt/maven/bin/mvn -B -DskipTests clean deploy'
             }
         }
-        stage('deploy'){
+        stage('deploy-production'){
 
             steps {
                 withCredentials([usernamePassword(credentialsId: 'nexus-cred', passwordVariable: 'pass', usernameVariable: 'user')]) {
