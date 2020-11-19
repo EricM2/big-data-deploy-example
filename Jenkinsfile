@@ -12,10 +12,10 @@ pipeline {
             }
         }
         stage('deploy'){
+
             steps {
                 withCredentials([usernamePassword(credentialsId: 'nexus-cred', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                        sh 'echo $user'
-                        sh 'echo $VERSION'
+                        sh '/root/test-repo.sh'
                 }
             }
         }
