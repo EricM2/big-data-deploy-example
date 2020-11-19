@@ -3,6 +3,10 @@ pipeline {
     environment {
        NEXUS_CREDENCIAL_ID = "nexus-credentials"
        VERSION = readMavenPom().getVersion()
+       GROUPID = "org.example"
+       ARTIFACTID = "big-data-deploy-example"
+       CLASSIFICATION = "distrubution"
+       PACKAGING = "tar.gz"
 
     }
     stages {
@@ -16,7 +20,7 @@ pipeline {
 
             steps {
                 withCredentials([usernamePassword(credentialsId: 'nexus-cred', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                        sh '/var/lib/jenkins/deploy.sh'
+                        sh '/var/lib/jenkins/deploy.sh $GROUPID $ARTIFACTID $VERSION $CLASSIFICATION $PACKAGING'
                 }
             }
         }
