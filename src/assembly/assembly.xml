@@ -59,6 +59,15 @@
             </includes>
         </fileSet>
         <fileSet>
+            <directory>${project.basedir}/conf</directory>
+            <outputDirectory>/conf</outputDirectory>
+            <includes>
+                <include>
+                    TwitterProfiles.txt
+                </include>
+            </includes>
+        </fileSet>
+        <fileSet>
             <directory>${project.build.directory}</directory>
             <outputDirectory>/transform</outputDirectory>
             <includes>

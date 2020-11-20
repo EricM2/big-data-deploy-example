@@ -1,7 +1,6 @@
 pipeline {
     agent any
     environment {
-       NEXUS_CREDENCIAL_ID = "nexus-credentials"
        VERSION = readMavenPom().getVersion()
        GROUPID = "org.example"
        ARTIFACTID = "big-data-deploy-example"
@@ -16,7 +15,7 @@ pipeline {
                sh '/opt/maven/bin/mvn -B -DskipTests clean deploy'
             }
         }
-        stage('deploy'){
+        stage('deploy-production'){
 
             steps {
                 withCredentials([usernamePassword(credentialsId: 'nexus-cred', passwordVariable: 'pass', usernameVariable: 'user')]) {
