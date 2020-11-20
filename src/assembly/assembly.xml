@@ -15,7 +15,7 @@
             <outputDirectory>/conf</outputDirectory>
             <includes>
                 <include>
-                    TwitterProfiles.txt
+                    *.txt
                 </include>
             </includes>
         </fileSet>
@@ -55,15 +55,6 @@
             <includes>
                 <include>
                     *.py
-                </include>
-            </includes>
-        </fileSet>
-        <fileSet>
-            <directory>${project.basedir}/conf</directory>
-            <outputDirectory>/conf</outputDirectory>
-            <includes>
-                <include>
-                    TwitterProfiles.txt
                 </include>
             </includes>
         </fileSet>
